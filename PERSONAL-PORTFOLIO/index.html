@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anshika Singh | Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --accent: #c9a84c;
+    --accent2: #7c6fcf;
+    --text: #e8e6f0;
+    --muted: #7a7890;
+    --border: rgba(201,168,76,0.2);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--accent);
+    letter-spacing: 2px; text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(124,111,207,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%);
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 900; line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name span { color: var(--accent); }
+  .hero-desc {
+    color: var(--muted); line-height: 1.8; font-size: 1rem;
+    margin-bottom: 2.5rem; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: var(--accent); color: #0a0a0f;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500; font-size: 0.85rem;
+    letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-outline {
+    padding: 0.85rem 2rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none; transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-img-wrap { position: relative; display: flex; justify-content: center; }
+  .hero-img-frame {
+    width: 340px; height: 420px;
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .hero-accent-line {
+    position: absolute; bottom: -20px; right: -20px;
+    width: 100px; height: 100px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+  }
+  section { padding: 6rem 4rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem; color: var(--accent);
+    letter-spacing: 3px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700; color: var(--text);
+  }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  #about { background: var(--surface); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text { color: var(--muted); line-height: 1.9; font-size: 1rem; }
+  .about-text p { margin-bottom: 1.2rem; }
+  .about-details { display: flex; flex-direction: column; gap: 1rem; }
+  .detail-row { display: flex; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
+  .detail-label { color: var(--accent); font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; min-width: 120px; font-weight: 500; }
+  .detail-value { color: var(--text); font-size: 0.9rem; }
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.6rem; }
+  .skill-name { font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text); }
+  .skill-pct { font-size: 0.8rem; color: var(--accent); }
+  .skill-bar { height: 2px; background: rgba(255,255,255,0.06); }
+  .skill-fill { height: 100%; background: linear-gradient(to right, var(--accent), var(--accent2)); }
+  #projects { background: var(--surface); }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .project-card { padding: 2rem; border: 1px solid var(--border); background: var(--bg); transition: border-color 0.3s, transform 0.3s; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .project-tag { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+  .project-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 0.8rem; }
+  .project-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+  .project-tech { margin-top: 1.2rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .tech-tag { font-size: 0.7rem; padding: 0.25rem 0.7rem; border: 1px solid var(--border); color: var(--muted); letter-spacing: 1px; }
+  .edu-list { display: flex; flex-direction: column; gap: 2rem; }
+  .edu-card { padding: 2rem; border-left: 2px solid var(--accent); background: var(--surface); padding-left: 2rem; }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--text); margin-bottom: 0.4rem; }
+  .edu-school { color: var(--accent); font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 0.3rem; }
+  .edu-year { color: var(--muted); font-size: 0.8rem; }
+  #contact { background: var(--surface); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .contact-icon { width: 40px; height: 40px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1rem; flex-shrink: 0; }
+  .contact-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .contact-value { color: var(--text); font-size: 0.9rem; }
+  .contact-value a { color: var(--text); text-decoration: none; }
+  .contact-value a:hover { color: var(--accent); }
+  .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+  .social-link { width: 40px; height: 40px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; font-size: 0.8rem; transition: border-color 0.3s, color 0.3s; }
+  .social-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-right { color: var(--muted); line-height: 1.9; }
+  .contact-right p { margin-bottom: 1rem; }
+  footer { padding: 2rem 4rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 0.8rem; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-content > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    section { padding: 4rem 1.5rem; }
+    #home { padding: 7rem 1.5rem 3rem; }
+    .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-img-wrap { display: none; }
+    .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#home" class="nav-logo">Anshika singh</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid container">
+    <div class="hero-content">
+      <div class="hero-tag">Data Analyst & IT Student</div>
+      <h1 class="hero-name">Anshika<br><span>Singh</span></h1>
+      <p class="hero-desc">Passionate about turning raw data into meaningful insights. Skilled in Python, Excel, and Data Visualization. Currently pursuing B.Tech in Information Technology.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-frame">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);display:flex;align-items:center;justify-content:center;">
+          <img src="C:\Users\anshi\OneDrive\Documents\new portfoli\photo.jpg.jpeg" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+      <div class="hero-accent-line"></div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Hi, I'm Anshika Singh — a passionate Data Analyst and B.Tech IT student from Surat, Gujarat.</p>
+        <p>I have completed my Diploma in Information Technology with specialization in Data Analysis from P P Savani University. Currently pursuing B.Tech in Information Technology (2nd Year).</p>
+        <p>I love working with data and turning numbers into meaningful insights using Python, Excel, and data visualization tools.</p>
+        <p>Currently available for freelance projects in Data Analysis and Web Development.</p>
+      </div>
+      <div class="about-details">
+        <div class="detail-row"><span class="detail-label">Profile</span><span class="detail-value">Data Analysis & Web Development</span></div>
+        <div class="detail-row"><span class="detail-label">Domain</span><span class="detail-value">IT & Data Science</span></div>
+        <div class="detail-row"><span class="detail-label">Education</span><span class="detail-value">B.Tech IT — 2nd Year (Ongoing)</span></div>
+        <div class="detail-row"><span class="detail-label">Previously</span><span class="detail-value">Diploma in IT — Completed</span></div>
+        <div class="detail-row"><span class="detail-label">University</span><span class="detail-value">P P Savani University, Surat</span></div>
+        <div class="detail-row"><span class="detail-label">Language</span><span class="detail-value">English, Hindi</span></div>
+        <div class="detail-row"><span class="detail-label">Tools</span><span class="detail-value">Python, Pandas, NumPy, Matplotlib, Seaborn</span></div>
+        <div class="detail-row"><span class="detail-label">Other Skills</span><span class="detail-value">Excel, HTML, CSS, JavaScript, Web Scraping</span></div>
+        <div class="detail-row"><span class="detail-label">Interest</span><span class="detail-value">Data Analysis, Coding, Freelancing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Excel</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Data Visualization</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Data Analysis</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Pandas & NumPy</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML / CSS / JS</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Web Scraping</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">SQL</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
+    </div>
+  </div>
+</section>
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-tag">Data Analysis</div><div class="project-title">Diwali Sales Data EDA</div><div class="project-desc">Cleaned and visualized Diwali sales data to derive actionable business insights.</div><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">Seaborn</span></div></div>
+      <div class="project-card"><div class="project-tag">NLP / Machine Learning</div><div class="project-title">Financial Sentiment Analysis</div><div class="project-desc">Classified financial text data using NLP techniques to identify sentiments.</div><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">NLP</span><span class="tech-tag">Scikit-learn</span></div></div>
+      <div class="project-card"><div class="project-tag">Web Scraping</div><div class="project-title">Web Scraping & Data Acquisition</div><div class="project-desc">Scraped structured data from websites using Python and stored in CSV format.</div><div class="project-tech"><span class="tech-tag">Python</span><span class="tech-tag">BeautifulSoup</span><span class="tech-tag">CSV</span></div></div>
+      <div class="project-card"><div class="project-tag">Web Development</div><div class="project-title">Personal Portfolio Website</div><div class="project-desc">Built a fully responsive portfolio website using HTML, CSS, and JavaScript.</div><div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div></div>
+      <div class="project-card"><div class="project-tag">JavaScript App</div><div class="project-title">Quiz Master App</div><div class="project-desc">Interactive quiz app with instant scoring built with vanilla JavaScript.</div><div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JavaScript</span></div></div>
+      <div class="project-card"><div class="project-tag">JavaScript App</div><div class="project-title">To-Do List App</div><div class="project-desc">Task manager with local storage support using HTML, CSS, and JavaScript.</div><div class="project-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">Local Storage</span></div></div>
+    </div>
+  </div>
+</section>
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-list">
+      <div class="edu-card"><div class="edu-degree">B.Tech in Information Technology</div><div class="edu-school">P P Savani University, Surat</div><div class="edu-year">2nd Year — Ongoing</div></div>
+      <div class="edu-card"><div class="edu-degree">Diploma in Information Technology</div><div class="edu-school">P P Savani University, Surat</div><div class="edu-year">2023 – 2026 | Specialization in Data Analysis — Completed</div></div>
+      <div class="edu-card"><div class="edu-degree">10th (CBSE)</div><div class="edu-school">St. Claret School, Buti-Bori, Nagpur</div><div class="edu-year">2022 – 2023</div></div>
+    </div>
+  </div>
+</section>
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+918421835556">+91 8421835556</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:anshikasingh96538@gmail.com">anshikasingh96538@gmail.com</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">in</div><div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/in/anshika-singh-973842329" target="_blank">anshika-singh-973842329</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">gh</div><div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/ANSHIKA0122" target="_blank">github.com/ANSHIKA0122</a></div></div></div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anshika-singh-973842329" target="_blank" class="social-link">in</a>
+          <a href="https://github.com/ANSHIKA0122" target="_blank" class="social-link">gh</a>
+          <a href="mailto:anshikasingh96538@gmail.com" class="social-link">✉</a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <p>I'm currently available for freelance projects in Data Analysis and Web Development.</p>
+        <p>Feel free to call or email me directly!</p>
+        <p style="color:var(--accent);">Based in Surat, Gujarat, India 🇮🇳</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <span>© 2025. Anshika Singh. All Rights Reserved.</span>
+  <span style="color:var(--accent);">Data Analyst & IT Student</span>
+</footer>
+</body>
+</html>
