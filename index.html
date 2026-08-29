@@ -29,6 +29,7 @@
     padding: 1.2rem 4rem;
     display: flex; justify-content: space-between; align-items: center;
     background: rgba(10,10,15,0.85);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
@@ -108,6 +109,12 @@
     border: 1px solid var(--border);
     position: relative; overflow: hidden;
   }
+  .hero-photo-frame {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-photo-img { width: 100%; height: 100%; object-fit: cover; }
   .hero-accent-line {
     position: absolute; bottom: -20px; right: -20px;
     width: 100px; height: 100px;
@@ -145,6 +152,12 @@
   .skill-pct { font-size: 0.8rem; color: var(--accent); }
   .skill-bar { height: 2px; background: rgba(255,255,255,0.06); }
   .skill-fill { height: 100%; background: linear-gradient(to right, var(--accent), var(--accent2)); }
+  .w-85 { width: 85%; }
+  .w-80 { width: 80%; }
+  .w-75 { width: 75%; }
+  .w-70 { width: 70%; }
+  .w-65 { width: 65%; }
+  .accent-text { color: var(--accent); }
   #projects { background: var(--surface); }
   .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .project-card { padding: 2rem; border: 1px solid var(--border); background: var(--bg); transition: border-color 0.3s, transform 0.3s; }
@@ -217,8 +230,8 @@
     </div>
     <div class="hero-img-wrap">
       <div class="hero-img-frame">
-        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);display:flex;align-items:center;justify-content:center;">
-          <img src="C:\Users\anshi\OneDrive\Documents\PERSONAL-PORTFOLIO\photo.jpg.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Anshika Singh - Web Developer">
+        <div class="hero-photo-frame">
+          <img src="C:\Users\anshi\OneDrive\Documents\PERSONAL-PORTFOLIO\photo.jpg.jpeg" class="hero-photo-img" alt="Anshika Singh - Web Developer">
         </div>
       </div>
       <div class="hero-accent-line"></div>
@@ -261,14 +274,14 @@
       <div class="section-line"></div>
     </div>
     <div class="skills-grid">
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML / CSS</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">Git & GitHub</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">Responsive Design</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">SQL</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div></div>
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">Data Visualization</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
-      <div class="skill-item"><div class="skill-header"><span class="skill-name">Web Scraping</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML / CSS</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill w-85"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill w-75"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Git & GitHub</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill w-75"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Responsive Design</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill w-80"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill w-80"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">SQL</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill w-65"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Data Visualization</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill w-75"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Web Scraping</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill w-70"></div></div></div>
     </div>
   </div>
 </section>
@@ -314,25 +327,25 @@
       <div class="contact-info">
         <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">Phone</div><div class="contact-value"><a href="tel:+918421835556">+91 8421835556</a></div></div></div>
         <div class="contact-item"><div class="contact-icon">✉</div><div><div class="contact-label">Email</div><div class="contact-value"><a href="mailto:anshikasingh96538@gmail.com">anshikasingh96538@gmail.com</a></div></div></div>
-        <div class="contact-item"><div class="contact-icon">in</div><div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/in/anshika-singh-973842329" target="_blank">anshika-singh-973842329</a></div></div></div>
-        <div class="contact-item"><div class="contact-icon">gh</div><div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/ANSHIKA0122" target="_blank">github.com/ANSHIKA0122</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">in</div><div><div class="contact-label">LinkedIn</div><div class="contact-value"><a href="https://www.linkedin.com/in/anshika-singh-973842329" target="_blank" rel="noopener noreferrer">anshika-singh-973842329</a></div></div></div>
+        <div class="contact-item"><div class="contact-icon">gh</div><div><div class="contact-label">GitHub</div><div class="contact-value"><a href="https://github.com/ANSHIKA0122" target="_blank" rel="noopener noreferrer">github.com/ANSHIKA0122</a></div></div></div>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/anshika-singh-973842329" target="_blank" class="social-link">in</a>
-          <a href="https://github.com/ANSHIKA0122" target="_blank" class="social-link">gh</a>
+          <a href="https://www.linkedin.com/in/anshika-singh-973842329" target="_blank" rel="noopener noreferrer" class="social-link">in</a>
+          <a href="https://github.com/ANSHIKA0122" target="_blank" rel="noopener noreferrer" class="social-link">gh</a>
           <a href="mailto:anshikasingh96538@gmail.com" class="social-link">✉</a>
         </div>
       </div>
       <div class="contact-right">
         <p>I'm currently available for freelance and internship opportunities in Web Development.</p>
         <p>Feel free to call or email me directly!</p>
-        <p style="color:var(--accent);">Based in Surat, Gujarat, India 🇮🇳</p>
+        <p class="accent-text">Based in Surat, Gujarat, India 🇮🇳</p>
       </div>
     </div>
   </div>
 </section>
 <footer>
   <span>© 2025. Anshika Singh. All Rights Reserved.</span>
-  <span style="color:var(--accent);">Web Developer & CSE Student</span>
+  <span class="accent-text">Web Developer & CSE Student</span>
 </footer>
 </body>
 </html>
